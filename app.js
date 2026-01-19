@@ -171,9 +171,17 @@ function resetAll(){
 }
 
 // Menu buttons
-ui.btnAll.addEventListener("click", () => ui.rowPicks.forEach(cb => cb.checked = true));
-ui.btnNone.addEventListener("click", () => ui.rowPicks.forEach(cb => cb.checked = false));
-ui.btnStart.addEventListener("click", startGame);
+function onTap(el, fn){
+  el.addEventListener("click", fn);
+  el.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    fn();
+  }, { passive:false });
+}
+
+onTap(ui.btnAll, () => ui.rowPicks.forEach(cb => cb.checked = true));
+onTap(ui.btnNone, () => ui.rowPicks.forEach(cb => cb.checked = false));
+onTap(ui.btnStart, startGame);
 
 // Game buttons
 ui.btnMenu.addEventListener("click", () => { save(); showMenu(); });
@@ -726,3 +734,4 @@ function loop(now){
 // Start
 showMenu();
 requestAnimationFrame(loop);
+
