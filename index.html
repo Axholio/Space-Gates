@@ -1,0 +1,91 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Einmaleins – Space Gates</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hud">
+      <div class="brand">🚀 Space Gates – Einmaleins</div>
+      <div class="stats">
+        <span>⏱️ <b id="time">--</b>s</span>
+        <span>❤️ <b id="hearts">3</b></span>
+        <span>🪙 <b id="coins">0</b></span>
+        <span>🔥 <b id="combo">0</b></span>
+        <span>⭐ <b id="level">1</b></span>
+      </div>
+    </header>
+
+    <!-- MENU -->
+    <section id="menu" class="panel">
+      <h2 class="title">Welche Reihen willst du üben?</h2>
+      <p class="muted">Wähle eine oder mehrere Reihen (z. B. 7er-Reihe). Dann Start.</p>
+
+      <div class="rowsGrid" aria-label="Reihenauswahl">
+        <label class="chip"><input type="checkbox" class="rowPick" value="1"><span>1er</span></label>
+        <label class="chip"><input type="checkbox" class="rowPick" value="2"><span>2er</span></label>
+        <label class="chip"><input type="checkbox" class="rowPick" value="3"><span>3er</span></label>
+        <label class="chip"><input type="checkbox" class="rowPick" value="4"><span>4er</span></label>
+        <label class="chip"><input type="checkbox" class="rowPick" value="5"><span>5er</span></label>
+        <label class="chip"><input type="checkbox" class="rowPick" value="6"><span>6er</span></label>
+        <label class="chip"><input type="checkbox" class="rowPick" value="7"><span>7er</span></label>
+        <label class="chip"><input type="checkbox" class="rowPick" value="8"><span>8er</span></label>
+        <label class="chip"><input type="checkbox" class="rowPick" value="9"><span>9er</span></label>
+        <label class="chip"><input type="checkbox" class="rowPick" value="10"><span>10er</span></label>
+      </div>
+
+      <div class="menuRow">
+        <button id="btnAll" class="secondary" type="button">Alle (1–10)</button>
+        <button id="btnNone" class="ghost" type="button">Keine</button>
+        <button id="btnStart" type="button">Start</button>
+      </div>
+
+      <p class="help">
+        Steuerung: PC Pfeiltasten • iPhone Neigung (im Spiel aktivieren)
+      </p>
+    </section>
+
+    <!-- GAME -->
+    <section id="gamePanel" class="panel hidden">
+      <div class="task">
+        <span>Aufgabe:</span>
+        <b id="taskText">?</b>
+        <span class="hint">Dauerfeuer ist an. Schieße Blöcke/Ziele frei und fliege ins richtige Tor (A/B).</span>
+      </div>
+
+      <div class="timebar" aria-label="Zeitbalken">
+        <div id="timeFill" class="timefill"></div>
+      </div>
+
+      <div class="gyroBar">
+        <div class="gyroLeft">
+          <button id="btnGyro" class="secondary" type="button">Neigung aktivieren</button>
+          <button id="btnCal" class="ghost" type="button">Kalibrieren</button>
+        </div>
+        <div id="gyroStatus" class="gyroStatus">Neigung: aus</div>
+      </div>
+
+      <canvas id="game" width="540" height="960" aria-label="Spielbereich"></canvas>
+
+      <div class="bottom">
+        <div id="msg" class="msg" aria-live="polite"></div>
+        <div class="controls">
+          <button id="btnMenu" class="ghost" type="button">Menü</button>
+          <button id="btnNew" class="secondary" type="button">Neue Aufgabe</button>
+          <button id="btnReset" class="ghost" type="button">Reset</button>
+        </div>
+      </div>
+
+      <p class="help">
+        iPhone: Neigung aktivieren → erlauben → Kalibrieren.
+      </p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
