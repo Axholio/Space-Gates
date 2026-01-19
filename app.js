@@ -1,3 +1,4 @@
+// Versuch 2
 // app.js
 // Reihen-Auswahl stabil + Zeitlimit + Neigungssteuerung (iPhone).
 
@@ -734,4 +735,5 @@ function loop(now){
 // Start
 showMenu();
 requestAnimationFrame(loop);
+
 
